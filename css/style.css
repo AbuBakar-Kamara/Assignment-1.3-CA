@@ -1,4 +1,26 @@
-/* Shared */
+/* =========================================================
+   style.css — Assessment 1.3
+   ---------------------------------------------------------
+   This file covers BOTH tasks:
+
+   PART A (index.html):
+   - Applies the 13 CSS rules from Task 1
+   - Matches the sample screenshot layout (nav spacing + subsection boxes)
+
+   PART B (birds.html):
+   - Implements theme toggle using data-theme
+   - Two palettes (Light/Dark), 5 variables each (required names)
+   - Styles bird buttons, viewer, and toggle button
+
+   NOTE:
+   - No external libraries used
+   - Uses CSS variables as required
+========================================================= */
+
+
+/* =========================
+   Shared reset / base
+========================= */
 * { box-sizing: border-box; }
 
 body {
@@ -6,79 +28,100 @@ body {
   font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* 
 
-   PART A: CSS for (index.html)
-*/
+/* =========================================================
+   PART A: CSS TASK (index.html)
+   Applies ONLY when body does NOT have class .birds-page
+========================================================= */
 
+/* (1) background color + (11) max width 800px */
 body:not(.birds-page) {
-  max-width: 800px;                 /* requirement */
+  max-width: 800px;                  /* (11) */
   margin: 0 auto;
-  background: var(--c-background-color);
-  color: var(--base-font-color);
+  background: var(--c-background-color); /* (1) */
+  color: var(--base-font-color);     /* (3) */
 }
 
-/* header/footer background highlight + centered */
+/* (2) header/footer highlight + (7) center header */
 body:not(.birds-page) header,
 body:not(.birds-page) footer {
-  background: var(--c-background-highlights);
-  text-align: center;
+  background: var(--c-background-highlights); /* (2) */
+  text-align: center;                         /* (7) */
+  color: var(--base-font-color);              /* (3) */
 }
 
+/* (7) header text size 150% and heading color yellow */
 body:not(.birds-page) header h1 {
   margin: 0;
   padding: 18px 12px;
-  font-size: 150%;
-  color: var(--c-yellow);
+  font-size: 150%;               /* (7) */
+  color: var(--c-yellow);        /* (7) */
 }
 
-/* nav: remove bullets + flex + centered */
-body:not(.birds-page) nav ul {
-  list-style: none;
-  padding: 12px;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  width: 100%;
+/* (3) main text color */
+body:not(.birds-page) main {
+  color: var(--base-font-color); /* (3) */
 }
 
+/* -------------------------
+   NAV styling
+------------------------- */
+
+/* nav should span full width for correct flex layout */
 body:not(.birds-page) nav {
   width: 100%;
   padding: 10px 0 18px;
 }
 
+/* (8) remove bullets + (9) flex + centered across full width */
+body:not(.birds-page) nav ul {
+  list-style: none;              /* (8) */
+  padding: 12px;
+  margin: 0;
+  width: 100%;
+  display: flex;                 /* (9) */
+  justify-content: space-evenly; /* closer to sample screenshot */
+  align-items: center;
+}
+
+/* nav link color (starter variable) */
 body:not(.birds-page) nav a {
   color: var(--secondary-font-color);
   text-decoration: none;
 }
 
-/* article links: magenta + hover orange */
+/* -------------------------
+   Article links + hover
+------------------------- */
+
+/* (4) article links magenta */
 body:not(.birds-page) article a {
-  color: var(--c-magenta);
-}
-body:not(.birds-page) article a:hover {
-  color: var(--c-orange);
+  color: var(--c-magenta);       /* (4) */
 }
 
-/* headings padding-top */
+/* (5) hover orange */
+body:not(.birds-page) article a:hover {
+  color: var(--c-orange);        /* (5) */
+}
+
+/* -------------------------
+   Headings spacing
+------------------------- */
+
+/* (12) all headings within article have top padding 50px */
 body:not(.birds-page) article h2,
 body:not(.birds-page) article h3 {
-  padding-top: 50px;
+  padding-top: 50px;             /* (12) */
   margin-top: 0;
 }
 
-/* cyan border around each subsection (heading + paragraphs) */
-body:not(.birds-page) article h3,
-body:not(.birds-page) article p {
-  border: 3px solid var(--c-cyan);
-  padding: 12px;
-  margin: 0 0 14px;
-}
+/* -------------------------
+   Layout: article + aside
+------------------------- */
 
-/* main content with aside on right */
+/* (13) aside to the right of the article */
 body:not(.birds-page) main {
-  display: flex;
+  display: flex;                 /* (13) */
   align-items: flex-start;
   gap: 22px;
   padding: 14px 12px 28px;
@@ -87,24 +130,76 @@ body:not(.birds-page) main {
 body:not(.birds-page) article { flex: 2; }
 body:not(.birds-page) aside   { flex: 1; }
 
-/* aside colors */
+/* (10) aside text green; links red; hover blue */
 body:not(.birds-page) aside {
-  color: var(--c-green);
+  color: var(--c-green);         /* (10) */
+  padding-top: 30px;             /* matches sample feel */
 }
+
 body:not(.birds-page) aside a {
-  color: var(--c-red);
+  color: var(--c-red);           /* (10) */
 }
+
 body:not(.birds-page) aside a:hover {
-  color: var(--c-blue);
+  color: var(--c-blue);          /* (10) */
 }
 
-/* 
-   PART B: Birds page themes
-   Two palettes with REQUIRED variable names
- */
+/* -------------------------
+   (6) Subsection border boxes
+   Match sample screenshot:
+   ONE border box per subsection:
+   - h3 + next two paragraphs
+------------------------- */
 
+/* IMPORTANT:
+   Do NOT border every paragraph. Only box the subsection blocks.
+*/
+
+/* Subsection heading (top of the box) */
+body:not(.birds-page) article h3 {
+  margin: 0;
+  border: 3px solid var(--c-cyan); /* (6) */
+  border-bottom: 0;
+  padding: 12px;
+}
+
+/* First paragraph after h3 (middle of the box) */
+body:not(.birds-page) article h3 + p {
+  margin: 0;
+  border-left: 3px solid var(--c-cyan);
+  border-right: 3px solid var(--c-cyan);
+  padding: 12px;
+}
+
+/* Second paragraph after h3 (bottom of the box) */
+body:not(.birds-page) article h3 + p + p {
+  margin: 0 0 22px;
+  border: 3px solid var(--c-cyan); /* (6) */
+  border-top: 0;
+  padding: 12px;
+}
+
+/* Intro paragraph under h2 should not be boxed */
+body:not(.birds-page) article h2 + p {
+  border: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+/* Footer spacing */
+body:not(.birds-page) footer p {
+  margin: 0;
+  padding: 14px 10px;
+}
+
+
+/* =========================================================
+   PART B: Birds page (birds.html)
+   Theme toggle + bird UI
+========================================================= */
+
+/* Required variable names (Light palette) */
 :root {
-  /* LIGHT palette (5 required variables) */
   --primary-color: #1f6feb;
   --secondary-color: #12a150;
   --bg-color: #f6f8fa;
@@ -112,8 +207,8 @@ body:not(.birds-page) aside a:hover {
   --heading-color: #0b1220;
 }
 
+/* Required variable names (Dark palette) */
 html[data-theme="dark"] {
-  /* DARK palette (5 required variables) */
   --primary-color: #7aa2ff;
   --secondary-color: #4ade80;
   --bg-color: #0b1220;
@@ -121,11 +216,13 @@ html[data-theme="dark"] {
   --heading-color: #e6edf3;
 }
 
+/* birds page base */
 .birds-page {
   background: var(--bg-color);
   color: var(--font-color);
 }
 
+/* header/footer blocks for birds page */
 .birds-header,
 .birds-footer {
   padding: 14px 16px;
@@ -133,6 +230,7 @@ html[data-theme="dark"] {
   border-bottom: 1px solid color-mix(in srgb, var(--font-color) 16%, transparent);
 }
 
+/* header layout */
 .birds-header {
   display: flex;
   justify-content: space-between;
@@ -145,6 +243,7 @@ html[data-theme="dark"] {
   color: var(--heading-color);
 }
 
+/* theme toggle button */
 #toggleThemeBtn {
   border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
   background: transparent;
@@ -154,6 +253,7 @@ html[data-theme="dark"] {
   cursor: pointer;
 }
 
+/* birds page layout */
 .birds-main {
   max-width: 900px;
   margin: 0 auto;
@@ -163,12 +263,14 @@ html[data-theme="dark"] {
   gap: 16px;
 }
 
+/* buttons row */
 .birds-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
+/* bird buttons */
 .bird-btn {
   border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
   background: color-mix(in srgb, var(--secondary-color) 12%, transparent);
@@ -178,10 +280,12 @@ html[data-theme="dark"] {
   cursor: pointer;
 }
 
+/* active button (extra clarity) */
 .bird-btn.is-active {
   outline: 3px solid color-mix(in srgb, var(--primary-color) 35%, transparent);
 }
 
+/* viewer card */
 .birds-viewer {
   border: 1px solid color-mix(in srgb, var(--font-color) 18%, transparent);
   border-radius: 18px;
@@ -189,6 +293,7 @@ html[data-theme="dark"] {
   background: color-mix(in srgb, var(--bg-color) 85%, var(--primary-color) 15%);
 }
 
+/* single image */
 #birdImg {
   display: block;
   width: 100%;
@@ -199,6 +304,7 @@ html[data-theme="dark"] {
   margin: 0 auto 10px;
 }
 
+/* single text paragraph */
 #birdCredit {
   margin: 0;
   text-align: center;
