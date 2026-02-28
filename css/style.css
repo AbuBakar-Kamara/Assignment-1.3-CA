@@ -1,0 +1,32 @@
+/* Shared */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* =========================
+   PART A: CSS TASK (index.html)
+========================= */
+
+body:not(.birds-page) {
+  max-width: 800px;                 /* requirement */
+  margin: 0 auto;
+  background: var(--c-background-color);
+  color: var(--base-font-color);
+}
+
+/* header/footer background highlight + centered */
+body:not(.birds-page) header,
+body:not(.birds-page) footer {
+  background: var(--c-background-highlights);
+  text-align: center;
+}
+
+body:not(.birds-page) header h1 {
+  margin: 0;
+  padding: 18px 12px;
+  font-size: 150%;
+  color: var(--c-yellow);
+}
