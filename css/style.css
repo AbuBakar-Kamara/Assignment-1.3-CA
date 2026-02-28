@@ -97,3 +97,110 @@ body:not(.birds-page) aside a {
 body:not(.birds-page) aside a:hover {
   color: var(--c-blue);
 }
+
+/* 
+   PART B: Birds page themes
+   Two palettes with REQUIRED variable names
+ */
+
+:root {
+  /* LIGHT palette (5 required variables) */
+  --primary-color: #1f6feb;
+  --secondary-color: #12a150;
+  --bg-color: #f6f8fa;
+  --font-color: #0b1220;
+  --heading-color: #0b1220;
+}
+
+html[data-theme="dark"] {
+  /* DARK palette (5 required variables) */
+  --primary-color: #7aa2ff;
+  --secondary-color: #4ade80;
+  --bg-color: #0b1220;
+  --font-color: #e6edf3;
+  --heading-color: #e6edf3;
+}
+
+.birds-page {
+  background: var(--bg-color);
+  color: var(--font-color);
+}
+
+.birds-header,
+.birds-footer {
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--font-color) 16%, transparent);
+}
+
+.birds-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.birds-header h1 {
+  margin: 0;
+  color: var(--heading-color);
+}
+
+#toggleThemeBtn {
+  border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
+  background: transparent;
+  color: var(--font-color);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.birds-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.birds-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bird-btn {
+  border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
+  background: color-mix(in srgb, var(--secondary-color) 12%, transparent);
+  color: var(--font-color);
+  padding: 10px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.bird-btn.is-active {
+  outline: 3px solid color-mix(in srgb, var(--primary-color) 35%, transparent);
+}
+
+.birds-viewer {
+  border: 1px solid color-mix(in srgb, var(--font-color) 18%, transparent);
+  border-radius: 18px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--bg-color) 85%, var(--primary-color) 15%);
+}
+
+#birdImg {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--font-color) 15%, transparent);
+  margin: 0 auto 10px;
+}
+
+#birdCredit {
+  margin: 0;
+  text-align: center;
+  color: color-mix(in srgb, var(--font-color) 75%, transparent);
+}
