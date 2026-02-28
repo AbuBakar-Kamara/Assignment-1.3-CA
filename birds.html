@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Assessment 1.3 — Birds</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="birds-page">
+    <header class="birds-header">
+      <h1>Bird Viewer</h1>
+      <button id="toggleThemeBtn" type="button">Toggle Theme</button>
+    </header>
+
+    <main class="birds-main">
+      <section class="birds-controls" aria-label="Bird buttons">
+        <button type="button" class="bird-btn" data-bird="pardalote">Pardalote</button>
+        <button type="button" class="bird-btn" data-bird="swamphen">Purple Swamp Hen</button>
+        <button type="button" class="bird-btn" data-bird="stilt">White-headed Stilt</button>
+        <button type="button" class="bird-btn" data-bird="thornbill">Inland Thornbill</button>
+        <button type="button" class="bird-btn" data-bird="robin">Rose Robin</button>
+      </section>
+
+      <section class="birds-viewer" aria-label="Selected bird">
+        <!-- Exactly ONE img + ONE p -->
+        <img id="birdImg" src="" alt="" />
+        <p id="birdCredit"></p>
+      </section>
+    </main>
+
+    <footer class="birds-footer">
+      <p>Assessment 1.3 — HTML, CSS variables, JavaScript, Git</p>
+    </footer>
+
+    <script src="js/birds.js" defer></script>
+  </body>
+</html>
