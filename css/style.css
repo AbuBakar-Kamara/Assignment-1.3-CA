@@ -60,3 +60,40 @@ body:not(.birds-page) article a {
 body:not(.birds-page) article a:hover {
   color: var(--c-orange);
 }
+
+/* headings padding-top */
+body:not(.birds-page) article h2,
+body:not(.birds-page) article h3 {
+  padding-top: 50px;
+  margin-top: 0;
+}
+
+/* cyan border around each subsection (heading + paragraphs) */
+body:not(.birds-page) article h3,
+body:not(.birds-page) article p {
+  border: 3px solid var(--c-cyan);
+  padding: 12px;
+  margin: 0 0 14px;
+}
+
+/* main content with aside on right */
+body:not(.birds-page) main {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 14px 12px 28px;
+}
+
+body:not(.birds-page) article { flex: 2; }
+body:not(.birds-page) aside   { flex: 1; }
+
+/* aside colors */
+body:not(.birds-page) aside {
+  color: var(--c-green);
+}
+body:not(.birds-page) aside a {
+  color: var(--c-red);
+}
+body:not(.birds-page) aside a:hover {
+  color: var(--c-blue);
+}
