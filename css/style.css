@@ -2,7 +2,6 @@
    style.css — Assessment 1.3
    ---------------------------------------------------------
    This file covers BOTH tasks:
-
    PART A (index.html):
    - Applies the 13 CSS rules from Task 1
    - Matches the sample screenshot layout (nav spacing + subsection boxes)
@@ -11,11 +10,7 @@
    - Implements theme toggle using data-theme
    - Two palettes (Light/Dark), 5 variables each (required names)
    - Styles bird buttons, viewer, and toggle button
-
-   NOTE:
-   - No external libraries used
-   - Uses CSS variables as required
-========================================================= */
+*/
 
 
 /* =========================
